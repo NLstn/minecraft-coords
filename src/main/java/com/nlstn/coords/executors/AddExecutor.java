@@ -35,9 +35,9 @@ public class AddExecutor extends CoordExecutor {
 
         Player player = (Player) sender;
 
-        double x = player.getLocation().getBlockX();
-        double y = player.getLocation().getBlockY();
-        double z = player.getLocation().getBlockZ();
+        int x = player.getLocation().getBlockX();
+        int y = player.getLocation().getBlockY();
+        int z = player.getLocation().getBlockZ();
 
         Coordinate coord = new Coordinate(args[0], String.valueOf(player.getUniqueId().toString()),
                 x + ", " + y + ", " + z);
