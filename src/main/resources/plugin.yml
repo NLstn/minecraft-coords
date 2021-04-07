@@ -7,7 +7,7 @@ load: POSTWORLD
 commands:
   addCoord:
     description: Save current location as coordinate
-    usage: /addCoord <name>
+    usage: /addCoord <name> [Optional -g]
   listCoords:
     description: List all coordinates
   delCoord:

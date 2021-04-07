@@ -3,6 +3,7 @@ package com.nlstn.coords.executors;
 import java.util.Optional;
 
 import com.nlstn.coords.Coordinate;
+import com.nlstn.coords.Main;
 
 import org.bukkit.command.BlockCommandSender;
 import org.bukkit.command.Command;
@@ -24,7 +25,7 @@ public class AddExecutor extends CoordExecutor {
             return false;
         }
 
-        if (args.length != 1)
+        if (args.length != 1 && args.length != 2)
             return false;
 
         Optional<Coordinate> existing = plugin.findCoord(args[0]);
@@ -39,8 +40,17 @@ public class AddExecutor extends CoordExecutor {
         int y = player.getLocation().getBlockY();
         int z = player.getLocation().getBlockZ();
 
-        Coordinate coord = new Coordinate(args[0], String.valueOf(player.getUniqueId().toString()),
-                x + ", " + y + ", " + z);
+        String owner = String.valueOf(player.getUniqueId().toString());
+        if (args.length == 2) {
+            if (args[1].equals("-g")) {
+                owner = Main.OWNER_GLOBAL;
+            } else {
+                sender.sendMessage("Unknown second argument '" + args[1] + "', expected '-g'");
+                return false;
+            }
+        }
+
+        Coordinate coord = new Coordinate(args[0], owner, x + ", " + y + ", " + z);
 
         plugin.addCoord(coord);
 
