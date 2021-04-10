@@ -6,6 +6,7 @@ import com.nlstn.coords.Coordinate;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class DelExecutor extends CoordExecutor {
 
@@ -14,7 +15,14 @@ public class DelExecutor extends CoordExecutor {
         if (args.length != 1)
             return false;
 
-        Optional<Coordinate> coordinateResult = plugin.findCoord(args[0]);
+        if (!(sender instanceof Player)) {
+            sender.sendMessage("Only players can delete coords yet");
+            return true;
+        }
+
+        String owner = ((Player) sender).getUniqueId().toString();
+
+        Optional<Coordinate> coordinateResult = plugin.findCoord(args[0], owner);
 
         if (!coordinateResult.isPresent()) {
             sender.sendMessage("Coordinate '" + args[0] + "' not found");

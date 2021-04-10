@@ -80,8 +80,8 @@ public class Main extends JavaPlugin {
         return coords;
     }
 
-    public Optional<Coordinate> findCoord(String id) {
-        return coords.stream().filter(coord -> coord.getId().equals(id)).findAny();
+    public Optional<Coordinate> findCoord(String id, String owner) {
+        return coords.stream().filter(coord -> coord.getId().equals(id) && coord.getOwner().equals(owner)).findAny();
     }
 
 }
