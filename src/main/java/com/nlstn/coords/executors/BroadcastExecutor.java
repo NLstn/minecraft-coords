@@ -38,7 +38,7 @@ public class BroadcastExecutor extends CoordExecutor {
 
         Bukkit.broadcastMessage(coord.toString());
 
-        return false;
+        return true;
     }
 
 }
