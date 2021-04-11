@@ -13,3 +13,6 @@ commands:
   delCoord:
     description: Delete a specific coordinate
     usage: /delCoord <name>
+  saveCoords:
+    description: Save all coordinates manually
+    usage: /saveCoords
