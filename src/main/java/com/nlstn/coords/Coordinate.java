@@ -16,6 +16,10 @@ public class Coordinate {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getOwner() {
         return owner;
     }

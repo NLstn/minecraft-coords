@@ -33,17 +33,25 @@ public class SetGlobalExecutor extends CoordExecutor {
         }
         Coordinate localCoord = coordOpt.get();
 
-        Optional<Coordinate> globalOpt = plugin.findCoord(args[0], Main.OWNER_GLOBAL);
+        String newId = localCoord.getId();
+        if (args.length == 2) {
+            newId = args[1];
+        }
+
+        Optional<Coordinate> globalOpt = plugin.findCoord(newId, Main.OWNER_GLOBAL);
         if (globalOpt.isPresent()) {
             sender.sendMessage("ID " + args[0] + " is already used in global, please specify a new name");
             return true;
         }
 
-        plugin.getCoords().remove(localCoord);
+        plugin.removeCoord(localCoord);
         localCoord.setOwner(Main.OWNER_GLOBAL);
-        plugin.getCoords().add(localCoord);
+        if (args.length == 2) {
+            localCoord.setId(newId);
+        }
+        plugin.addCoord(localCoord);
         sender.sendMessage("Changed coordinate " + args[0] + " to global");
-        return false;
+        return true;
     }
 
 }
