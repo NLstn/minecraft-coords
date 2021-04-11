@@ -13,9 +13,15 @@ commands:
   delCoord:
     description: Delete a specific coordinate
     usage: /delCoord <name>
+<<<<<<< HEAD
   setCoordGlobal:
     description: Change a coordinate from global to private
     usage: /setCoordGlobal <name> [Optional <newName>]
   broadcastCoord:
     description: Broadcast a coordinate
     usage: /broadcastCoord <name> [Optional -g]
+=======
+  saveCoords:
+    description: Save all coordinates manually
+    usage: /saveCoords
+>>>>>>> SaveCoords Command
