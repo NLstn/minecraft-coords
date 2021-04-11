@@ -13,3 +13,6 @@ commands:
   delCoord:
     description: Delete a specific coordinate
     usage: /delCoord <name>
+  broadcastCoord:
+    description: Broadcast a coordinate
+    usage: /broadcastCoord <name> [Optional -g]
