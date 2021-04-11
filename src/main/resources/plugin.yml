@@ -13,3 +13,6 @@ commands:
   delCoord:
     description: Delete a specific coordinate
     usage: /delCoord <name>
+  setCoordGlobal:
+    description: Change a coordinate from global to private
+    usage: /setCoordGlobal <name> [Optional <newName>]

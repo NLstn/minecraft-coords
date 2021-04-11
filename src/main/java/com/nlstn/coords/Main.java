@@ -7,6 +7,7 @@ import java.util.Optional;
 import com.nlstn.coords.executors.AddExecutor;
 import com.nlstn.coords.executors.DelExecutor;
 import com.nlstn.coords.executors.ListExecutor;
+import com.nlstn.coords.executors.SetGlobalExecutor;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -35,6 +36,7 @@ public class Main extends JavaPlugin {
         getCommand("addCoord").setExecutor(new AddExecutor());
         getCommand("listCoords").setExecutor(new ListExecutor());
         getCommand("delCoord").setExecutor(new DelExecutor());
+        getCommand("setCoordGlobal").setExecutor(new SetGlobalExecutor());
     }
 
     @Override

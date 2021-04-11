@@ -20,6 +20,10 @@ public class Coordinate {
         return owner;
     }
 
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
     public String getCoord() {
         return coord;
     }
