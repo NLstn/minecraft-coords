@@ -19,3 +19,6 @@ commands:
   broadcastCoord:
     description: Broadcast a coordinate
     usage: /broadcastCoord <name> [Optional -g]
+  saveCoords:
+    description: Save all coordinates manually
+    usage: /saveCoords

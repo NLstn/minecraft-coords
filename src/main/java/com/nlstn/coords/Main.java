@@ -1,6 +1,5 @@
 package com.nlstn.coords;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +8,7 @@ import com.nlstn.coords.executors.BroadcastExecutor;
 import com.nlstn.coords.executors.DelExecutor;
 import com.nlstn.coords.executors.ListExecutor;
 import com.nlstn.coords.executors.SetGlobalExecutor;
+import com.nlstn.coords.executors.SaveExecutor;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -39,17 +39,12 @@ public class Main extends JavaPlugin {
         getCommand("delCoord").setExecutor(new DelExecutor());
         getCommand("setCoordGlobal").setExecutor(new SetGlobalExecutor());
         getCommand("broadcastCoord").setExecutor(new BroadcastExecutor());
+        getCommand("saveCoords").setExecutor(new SaveExecutor());
     }
 
     @Override
     public void onDisable() {
-
-        try {
-            CoordsFileHandler.saveCoords(this, coords);
-        } catch (IOException e) {
-            getLogger().warning("Failed to save data file: " + e.getMessage());
-        }
-
+        save();
     }
 
     @Override
@@ -70,14 +65,18 @@ public class Main extends JavaPlugin {
         checkSave();
     }
 
-    private void checkSave() {
-        if (changeCounter < getConfig().getInt("saveInterval"))
-            return;
+    public void save() {
         try {
             CoordsFileHandler.saveCoords(this, coords);
         } catch (Exception e) {
             getLogger().info("Failed to save data file: " + e.getMessage());
         }
+    }
+
+    private void checkSave() {
+        if (changeCounter < getConfig().getInt("saveInterval"))
+            return;
+        save();
     }
 
     public List<Coordinate> getCoords() {
