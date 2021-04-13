@@ -7,7 +7,10 @@ import com.nlstn.coords.executors.AddExecutor;
 import com.nlstn.coords.executors.BroadcastExecutor;
 import com.nlstn.coords.executors.DelExecutor;
 import com.nlstn.coords.executors.ListExecutor;
+<<<<<<< HEAD
 import com.nlstn.coords.executors.SetGlobalExecutor;
+=======
+>>>>>>> 84186e46bf3e7ac7ce3a0610e4bc78c2561c4387
 import com.nlstn.coords.executors.SaveExecutor;
 
 import org.bukkit.command.Command;
@@ -37,8 +40,11 @@ public class Main extends JavaPlugin {
         getCommand("addCoord").setExecutor(new AddExecutor());
         getCommand("listCoords").setExecutor(new ListExecutor());
         getCommand("delCoord").setExecutor(new DelExecutor());
+<<<<<<< HEAD
         getCommand("setCoordGlobal").setExecutor(new SetGlobalExecutor());
         getCommand("broadcastCoord").setExecutor(new BroadcastExecutor());
+=======
+>>>>>>> 84186e46bf3e7ac7ce3a0610e4bc78c2561c4387
         getCommand("saveCoords").setExecutor(new SaveExecutor());
     }
 
