@@ -22,6 +22,3 @@ commands:
   saveCoords:
     description: Save all coordinates manually
     usage: /saveCoords
-  saveCoords:
-    description: Save all coordinates manually
-    usage: /saveCoords
