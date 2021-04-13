@@ -37,6 +37,7 @@ public class Main extends JavaPlugin {
 
         getCommand("addCoord").setExecutor(new AddExecutor());
         getCommand("listCoords").setExecutor(new ListExecutor());
+        getCommand("delCoord").setExecutor(new DelExecutor());
         getCommand("clearCoords").setExecutor(new ClearExecutor());
         getCommand("setCoordGlobal").setExecutor(new SetGlobalExecutor());
         getCommand("broadcastCoord").setExecutor(new BroadcastExecutor());
